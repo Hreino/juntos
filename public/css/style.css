@@ -21,7 +21,9 @@
     border-radius: 10px;
     border: #069999 solid 2px;
 }
-
+.mi{
+    border-bottom: solid black 1.5px !important;
+}
 #logoNav{
     height:60px;
     width: 150px;

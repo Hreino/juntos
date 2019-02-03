@@ -19,6 +19,7 @@ use App\Miscellaneous;
 use Illuminate\Http\Request;
 use App\Mail\Notification;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\DB;
 use App\IncomeDetail;
 
 class BudgetController extends Controller
@@ -166,7 +167,7 @@ class BudgetController extends Controller
         ];
 
         return view('budget.show', [
-            'presupuesto'=>$presupuesto, 'ingresos'=>$ingresos,
+            'presupuesto'=>$presupuesto, 'ingresos'=>$ingresos, 'egresos'=>$egresos,
             'incomeDetail'=>$incomeDetail, 
             'vivienda'=>$vivienda, 'transporte'=>$transporte,
             'alimentacion'=>$alimentacion, 'ahorros'=>$ahorros,
@@ -213,8 +214,52 @@ class BudgetController extends Controller
 
     public function coaching(){
 
-        $coachBudgets = Budget::where([['coaching', '=',  'Si'],['id_expenses', '<>', 'NULL'], ['id_incomes', '<>', 'NULL']])->get();
+        $coachA= DB::table('budgets')
+            ->join('users', 'budgets.id_user', 'users.id')
+            ->where('users.company', '=', 'Empresa A')
+            ->where('budgets.id_expenses','<>','NULL')
+            ->where('budgets.id_incomes','<>','NULL')
+            ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
+        ->get();
 
-        return view('budget.coaching', ['coachBudgets'=>$coachBudgets]);
+        $coachB= DB::table('budgets')
+            ->join('users', 'budgets.id_user', 'users.id')
+            ->where('users.company', '=', 'Empresa B')
+            ->where('budgets.id_expenses','<>','NULL')
+            ->where('budgets.id_incomes','<>','NULL')
+            ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
+        ->get();
+
+        $coachC= DB::table('budgets')
+            ->join('users', 'budgets.id_user', 'users.id')
+            ->where('users.company', '=', 'Empresa C')
+            ->where('budgets.id_expenses','<>','NULL')
+            ->where('budgets.id_incomes','<>','NULL')
+            ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
+        ->get();
+        
+        $coachD= DB::table('budgets')
+            ->join('users', 'budgets.id_user', 'users.id')
+            ->where('users.company', '=', 'Empresa D')
+            ->where('budgets.id_expenses','<>','NULL')
+            ->where('budgets.id_incomes','<>','NULL')
+            ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
+        ->get();
+
+        $coachE= DB::table('budgets')
+            ->join('users', 'budgets.id_user', 'users.id')
+            ->where('users.company', '=', 'Empresa E')
+            ->where('budgets.id_expenses','<>','NULL')
+            ->where('budgets.id_incomes','<>','NULL')
+            ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
+        ->get();
+
+        return view('budget.coaching', [
+            'coachA'=>$coachA,
+            'coachB'=>$coachB,
+            'coachC'=>$coachC,
+            'coachD'=>$coachD,
+            'coachE'=>$coachE,
+            ]);
     }
 }

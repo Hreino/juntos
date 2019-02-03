@@ -12,7 +12,7 @@
                 <table class="table table-hover table-stripped table-bordered ">
                     <thead>
                         <tr>
-                            <th colspan="2" class=" label text-center">Detalles</th>
+                            <th colspan="2" class=" label text-center"><h2>Detalles</h2></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,7 +52,13 @@
                         <tr >
                             <th class="bg-app">Porcentaje Actual</th>
                             @foreach ($actuales as $item)
-                                <td>{{$item}}%</td>
+                                @if ($actuales[11]>1)
+                                 <td class="text-danger">{{$item}}%</td>
+                                @else
+                                    <td>{{$item}}%</td>
+                                @endif
+
+                                
                             @endforeach
                         </tr>
                        
@@ -98,9 +104,9 @@
         <table class="table table-hover table-stripped table-bordered ">
             <thead>
                 <tr>
-                    <th colspan="2" class="label text-center">Ingresos</th>
+                    <th colspan="2" class="label text-center"><h3>Ingresos</h3></th>
                 </tr>
-                <tr class="text-center">
+                <tr class="text-center bg-app">
                     <th colspan="1">Detalle</th>
                     <th colspan="1">Monto</th>
                 </tr>
@@ -108,7 +114,7 @@
 
             <tbody>
                 <tr>
-                    <td class="text-right"><b>Ingresos {{auth()->user()->name}}</b></td>
+                    <td class="text-right"><b>Ingresos Esposo</b></td>
                     <td class="text-right"><b>${{$ingresos->husbandIncome}}</b></td>
                 </tr>
                 <tr>
@@ -155,7 +161,7 @@
                 <tr>
                     <th colspan="3" class="label text-center">Egresos</th>
                 </tr>
-                <tr class="text-center">
+                <tr class="text-center bg-app">
                     <th>Categoría</th>
                     <th>Sub-categoría</th>
                     <th>Monto</th>
@@ -165,7 +171,10 @@
             <tbody>
                 {{-- Gastos Vivienda --}}
                 <tr>
-                    <td rowspan="12" class="text-center" style="padding-top:25%;">Vivienda</td>
+                    <td rowspan="12" class="text-center mi" style="padding-top:25%;">
+                        <h1>Vivienda</h1> <br>
+                        <i class="fa fa-home fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Renta</td>
                     <td class="text-right">${{$vivienda->rent}}</td>
                 </tr>
@@ -209,15 +218,18 @@
                     <td>Proyectos</td>
                     <td>${{$vivienda->projects}}</td>
                 </tr>
-                <tr class="text-right label">
-                    <td>Total Gastos Vivienda</td>
-                    <td>${{$vivienda->total}}</td>
+                <tr class="text-right label ">
+                    <td class="mi">Total Gastos Vivienda</td>
+                    <td class="mi">${{$vivienda->total}}</td>
                 </tr>
                 {{-- Gastos Vivienda --}}
 
                 {{-- Gastos de Transporte --}}
                 <tr>
-                    <td rowspan="8" class="text-center" style="padding-top:12%;">Transporte o Autmóviles</td>
+                    <td rowspan="8" class="text-center mi" style="padding-top:12%;">
+                        <h3>Transporte o Autmóviles</h3> <br>
+                        <i class="fa fa-car fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Cuotas Mensuales Autos</td>
                     <td class="text-right">${{$transporte->monthlyPayments}}</td>
                 </tr>
@@ -246,14 +258,17 @@
                     <td>${{$transporte->other}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td >Total Gastos Transporte o Automóviles </small></td>
-                    <td>${{$transporte->total}}</td>
+                    <td class="mi">Total Gastos Transporte o Automóviles </small></td>
+                    <td class="mi">${{$transporte->total}}</td>
                 </tr>
                 {{-- Gastos de Transporte --}}
 
                 {{-- Gastos de  Alimentacion--}}
                 <tr>
-                    <td rowspan="4" class="text-center" style="padding-top:7.5%;">Alimentación</td>
+                    <td rowspan="4" class="text-center mi" style="padding-top:7.5%;">
+                        <h3>Alimentación</h3> <br>
+                        <i class="fa fa-spoon fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Supermercado</td>
                     <td class="text-right">${{$alimentacion->superMarket}}</td>
                 </tr>
@@ -266,14 +281,17 @@
                     <td>${{$alimentacion->other}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total Gastos de Alimentación</td>
-                    <td>${{$alimentacion->total}}</td>
+                    <td class="mi">Total Gastos de Alimentación</td>
+                    <td class="mi">${{$alimentacion->total}}</td>
                 </tr>
                 {{-- Gastos de  Alimentacion--}}
 
                 {{-- Ahorros --}}
                 <tr >
-                    <td rowspan="4" class="text-center" style="padding-top:7.5%;">Ahorros</td>
+                    <td rowspan="4" class="text-center mi" style="padding-top:7.5%;">
+                        <h3>Ahorros</h3>
+                        <i class="fa fa-money fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Ahorro 1</td>
                     <td class="text-right">${{$ahorros->savingOne}}</td>
                 </tr>
@@ -286,14 +304,19 @@
                     <td>${{$ahorros->investmentPlan}}</td>
                 </tr>
                 <tr class="label text-right">
-                    <td>Total Ahorros</td>
-                    <td>${{$ahorros->total}}</td>
+                    <td class="mi">Total Ahorros</td>
+                    <td class="mi">${{$ahorros->total}}</td>
                 </tr>
                 {{-- Ahorros --}}
 
                 {{-- Pago de deudas --}}
                 <tr>
-                    <td rowspan="10" class="text-center" style="padding-top:20%;">Pago de Deudas</td>
+                    <td rowspan="10" class="text-center mi" style="padding-top:20%;">
+                       <h3> Pago de Deudas</h3>
+                       <i class="fa fa-money label fa-4x" aria-hidden="true"></i>
+
+                    
+                    </td>
                     <td class="text-right">Tarjeta de credito 1</td>
                     <td class="text-right">${{$deudas->creditCardOne}}</td>
                 </tr>
@@ -331,14 +354,17 @@
                     <td>${{$deudas->other}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total Deudas</td>
-                    <td>${{$deudas->total}}</td>
+                    <td class="mi">Total Deudas</td>
+                    <td class="mi">${{$deudas->total}}</td>
                 </tr>
                 {{-- Pago de deudas --}}
 
                 {{-- Entretenimiento --}}
                 <tr>
-                    <td rowspan="5" class="text-center" style="padding-top:7.5%">Entretenimiento</td>
+                    <td rowspan="5" class="text-center mi" style="padding-top:7.5%">
+                        <h3>Entretenimiento</h3>
+                        <i class="fa fa-users fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Salidas de Paseo</td>
                     <td class="text-right">${{$entretenimiento->travels}}</td>
                 </tr>
@@ -355,14 +381,17 @@
                     <td>${{$entretenimiento->other}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total gastos Entretenimiento </td>
-                    <td>${{$entretenimiento->total}}</td>
+                    <td class="mi">Total gastos Entretenimiento </td>
+                    <td class="mi">${{$entretenimiento->total}}</td>
                 </tr>
                 {{-- Entretenimiento --}}
 
                 {{-- Gastos Ropa --}}
                 <tr>
-                    <td rowspan="4" class="text-center" style="padding-top:7%;">Vestuario</td>
+                    <td rowspan="4" class="text-center mi" style="padding-top:7%;">
+                        <h3>Vestuario</h3>
+                        <i class="fa fa-child fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Ropa</td>
                     <td class="text-right">${{$ropa->clothes}}</td>
                 </tr>
@@ -375,15 +404,18 @@
                     <td>${{$ropa->kidsClothing}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total Gastos Vestuario</td>
-                    <td>${{$ropa->total}}</td>
+                    <td class="mi">Total Gastos Vestuario</td>
+                    <td class="mi">${{$ropa->total}}</td>
                 </tr>
                 {{-- Gastos Ropa --}}
 
                 {{-- Gastos Salud --}}
 
                 <tr>
-                    <td rowspan="5" class="text-center" style="padding-top:10%;">Salud</td>
+                    <td rowspan="5" class="text-center mi" style="padding-top:10%;">
+                        <h3>Salud</h3>
+                        <i class="fa fa-ambulance fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Consultas médicas</td>
                     <td class="text-right">${{$salud->doctors}}</td>
                 </tr>
@@ -400,14 +432,17 @@
                     <td>${{$salud->other}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total Gastos Salud</td>
-                    <td>${{$salud->total}}</td>
+                    <td class="mi">Total Gastos Salud</td>
+                    <td class="mi">${{$salud->total}}</td>
                 </tr>
                 {{-- Gastos Salud --}}
 
                 {{-- Gastos Seguros --}}
                 <tr>
-                    <td rowspan="4" class="text-center" style="padding-top:6%;">Seguros</td>
+                    <td rowspan="4" class="text-center mi" style="padding-top:6%;">
+                        <h3>Seguros</h3>
+                        <i class="fa fa-money fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Seguros de Vida</td>
                     <td class="text-right">${{$seguros->lifeInsurance}}</td>
                 </tr>
@@ -420,15 +455,18 @@
                     <td>${{$seguros->other}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total Seguros</td>
-                    <td>${{$seguros->total}}</td>
+                    <td class="mi">Total Seguros</td>
+                    <td class="mi">${{$seguros->total}}</td>
                 </tr>
                 {{-- Gastos Seguros --}}
 
                 {{-- Educación --}}
 
                 <tr>
-                    <td rowspan="5" class="text-center" style="padding-top:6%;">Educación</td>
+                    <td rowspan="5" class="text-center mi" style="padding-top:6%;">
+                        <h3>Educación</h3>
+                        <i class="fa fa-university fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Mensualidades Universidad</td>
                     <td class="text-right">${{$educacion->college}}</td>
                 </tr>
@@ -445,15 +483,20 @@
                     <td>${{$educacion->books}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total Educación</td>
-                    <td>${{$educacion->total}}</td>
+                    <td class="mi">Total Educación</td>
+                    <td class="mi">${{$educacion->total}}</td>
                 </tr>
 
                 {{-- Educación --}}
 
                 {{-- Gastos Varios --}}
                 <tr>
-                    <td rowspan="16" class="text-center" style="padding-top:30%;">Gastos Varios</td>
+                    <td rowspan="16" class="text-center mi" style="padding-top:30%;">
+                       <h3> Gastos Varios</h3>
+                       <i class="fa fa-music fa-4x label" aria-hidden="true"></i>
+                       <i class="fa fa-coffee fa-4x label" aria-hidden="true"></i>
+                       <i class="fa fa-beer fa-4x label" aria-hidden="true"></i>
+                    </td>
                     <td class="text-right">Compra de Periódicos</td>
                     <td class="text-right">${{$otros->newspaper}}</td>
                 </tr>
@@ -514,12 +557,21 @@
                     <td>${{$otros->other}}</td>
                 </tr>
                 <tr class="text-right label">
-                    <td>Total Gastos Varios</td>
-                    <td>${{$otros->total}}</td>
+                    <td class="mi">Total Gastos Varios</td>
+                    <td class="mi">${{$otros->total}}</td>
                 </tr>
                 {{-- Gastos Varios --}}
 
                 {{-- Resultado del presupuesto mensual --}}
+                <tr class="label text-right">
+                    <th colspan="2">Total de gastos</th>
+                    @if (($ingresos->total)>($egresos->total))
+                        <th>${{$egresos->resultado}}</th>
+                    @else
+                        <th class="text-danger">${{$egresos->total}}</</th>
+                    @endif
+                    
+                </tr>
                 <tr class="label text-right">
                     <th colspan="2">Dinero Disponible al final del Mes</th>
                     @if ($presupuesto->resultado>0)
