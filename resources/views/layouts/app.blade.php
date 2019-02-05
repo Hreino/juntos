@@ -33,7 +33,7 @@
     <link href="{{ asset('css/tourtipguide.min.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body class="back">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
@@ -110,9 +110,11 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        <div >
+                <main class="py-4">
+                    @yield('content')
+                </main>
+        </div>
     </div>
 </body>
 

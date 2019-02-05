@@ -13,13 +13,13 @@
                 </tr>
                 <tr>
                     <th colspan="4" class="bg-app" style="border-bottom:3px solid black">
-                        <h3>Empresa A</h3>
+                        <h3>SERTRACEN</h3>
                     </th>
                 </tr>
             </thead>
 
             <tbody>
-                @if (count($coachA)==0)
+                @if (count($SERTRACEN)==0)
                     <tr>
                         <td class="text-center">
                             <h3>No hay usuarios que recibirán coaching de esta empresa</h3>
@@ -31,7 +31,7 @@
                         <td>Mes</td>
                         <td>Detalles</td>
                     </tr>
-                    @foreach ($coachA as $item)
+                    @foreach ($SERTRACEN as $item)
                         <tr class="text-center">
                             <td>{{$item->name}}</td>
                             <td>{{$item->mes}}</td>
@@ -50,13 +50,13 @@
                 
                 <tr>
                     <th colspan="4" class="bg-app" style="border-bottom:3px solid black">
-                        <h3>Empresa B</h3>
+                        <h3>DIARIO EL MUNDO</h3>
                     </th>
                 </tr>
             </thead>
     
             <tbody>
-                @if (count($coachB)==0)
+                @if (count($DIARIOELMUNDO)==0)
                     <tr>
                         <td class="text-center">
                             <h3>No hay usuarios que recibirán coaching de esta empresa</h3>
@@ -68,7 +68,7 @@
                         <td>Mes</td>
                         <td>Detalles</td>
                     </tr>
-                    @foreach ($coachB as $item)
+                    @foreach ($DIARIOELMUNDO as $item)
                         <tr class="text-center">
                             <td>{{$item->name}}</td>
                             <td>{{$item->mes}}</td>
@@ -89,13 +89,13 @@
                
                 <tr>
                     <th colspan="4" class="bg-app" style="border-bottom:3px solid black">
-                        <h3>Empresa C</h3>
+                        <h3>RED-INTELFON</h3>
                     </th>
                 </tr>
             </thead>
     
             <tbody>
-                @if (count($coachC)==0)
+                @if (count($REDINTELFON)==0)
                     <tr>
                         <td class="text-center">
                             <h3>No hay usuarios que recibirán coaching de esta empresa</h3>
@@ -107,7 +107,7 @@
                         <td>Mes</td>
                         <td>Detalles</td>
                     </tr>
-                    @foreach ($coachC as $item)
+                    @foreach ($REDINTELFON as $item)
                         <tr class="text-center">
                             <td>{{$item->name}}</td>
                             <td>{{$item->mes}}</td>
@@ -127,13 +127,13 @@
                 
                 <tr>
                     <th colspan="4" class="bg-app" style="border-bottom:3px solid black">
-                        <h3>Empresa D</h3>
+                        <h3>JUGUETON</h3>
                     </th>
                 </tr>
             </thead>
     
             <tbody>
-                @if (count($coachD)==0)
+                @if (count($JUGUETON)==0)
                     <tr>
                         <td class="text-center">
                             <h3>No hay usuarios que recibirán coaching de esta empresa</h3>
@@ -145,7 +145,7 @@
                     <td>Mes</td>
                     <td>Detalles</td>
                 </tr>
-                    @foreach ($coachD as $item)
+                    @foreach ($JUGUETON as $item)
                         <tr class="text-center "> 
                             <td>{{$item->name}}</td>
                             <td>{{$item->mes}}</td>
@@ -165,13 +165,13 @@
                
                 <tr>
                     <th colspan="4" class="bg-app" style="border-bottom:3px solid black">
-                        <h3>Empresa E</h3>
+                        <h3>ALSASA</h3>
                     </th>
                 </tr>
             </thead>
     
             <tbody>
-                @if (count($coachE)==0)
+                @if (count($ALSASA)==0)
                     <tr>
                         <td class="text-center">
                             <h3>No hay usuarios que recibirán coaching de esta empresa</h3>
@@ -183,7 +183,7 @@
                         <td>Mes</td>
                         <td>Detalles</td>
                     </tr>
-                    @foreach ($coachE as $item)
+                    @foreach ($ALSASA as $item)
                         <tr class="text-center">
                             <td>{{$item->name}}</td>
                             <td>{{$item->mes}}</td>
@@ -196,5 +196,44 @@
             </tbody>
         </table>
         {{-- Empresa E --}}
+
+        <hr>
+        {{-- Empresa F--}}
+            <table class="table  table-bordered">
+                <thead class="text-center">
+                   
+                    <tr>
+                        <th colspan="4" class="bg-app" style="border-bottom:3px solid black">
+                            <h3>GRUPO BORJA</h3>
+                        </th>
+                    </tr>
+                </thead>
+        
+                <tbody>
+                    @if (count($GBORJA)==0)
+                        <tr>
+                            <td class="text-center">
+                                <h3>No hay usuarios que recibirán coaching de esta empresa</h3>
+                            </td>
+                        </tr>
+                    @else
+                        <tr class="text-center label">
+                            <td>Nombre del usuario</td>
+                            <td>Mes</td>
+                            <td>Detalles</td>
+                        </tr>
+                        @foreach ($GBORJA as $item)
+                            <tr class="text-center">
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->mes}}</td>
+                                
+                                <td><a  href="{{Route('budget.show', $item->id)}}" class="btn  btn-default-app">Ver Detalles </a></td>
+    
+                            </tr>
+                        @endforeach
+                    @endif
+                </tbody>
+            </table>
+            {{-- Empresa E --}}
     </div>
 @endsection

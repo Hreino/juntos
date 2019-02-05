@@ -44,10 +44,12 @@
 
                             <div class="col-md-6">
                                <select name="company" id="company" class="form-control label">
-                                    <option value="Empresa A">Empresa A</option>
-                                    <option value="Empresa B">Empresa B</option>
-                                    <option value="Empresa C">Empresa C</option>
-                                    <option value="Empresa D">Empresa D</option>
+                                    <option value="SERTRACEN">SERTRACEN</option>
+                                    <option value="DIARIO EL MUNDO">DIARIO EL MUNDO</option>
+                                    <option value="RED-INTELFON">RED-INTELFON</option>
+                                    <option value="JUGUETON">JUGUETON</option>
+                                    <option value="ALSASA">ALSASA</option>
+                                    <option value="GRUPO BORJA">GRUPO BORJA</option>
                                </select>
                             </div>
                         </div>

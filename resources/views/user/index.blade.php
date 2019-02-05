@@ -16,93 +16,14 @@
         
                 <tbody>
                     <tr>
-                        <td colspan="5" class="bg-app"><b>Empleados Empresa A</b></td>
+                        <td colspan="5" class="bg-app"><b>Empleados SERTRACEN</b></td>
                     </tr>
-                    @foreach($a as $user)
-                    <tr>
-                        <td>{{$user -> name}}</td>
-                        <td>{{$user -> email}}</td>
-                        <td>{{$user -> company}}</td>
-                        @if ($user ->role==0)
-                            <td>Administrador</td>
-                        @endif
-                        @if ($user ->role==1)
-                            <td>Coach</td>
-                        @endif
-                        @if ($user->role==2)
-                            <td>Usuario</td>
-                        @endif
-                        <td>
-                            <form action="{{Route('users.destroy',array($user->id))}}" method="post">
-                                {{csrf_field()}}
-                                <input name="_method" type="hidden" value="DELETE">
-                                <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
-                                <button class="btn btn-app" type="Submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-
-                    <tr>
-                        <td colspan="5" class="bg-app"><b>Empleados Empresa B</b></td>
-                    </tr>
-                    @foreach($b as $user)
-                    <tr>
-                        <td>{{$user -> name}}</td>
-                        <td>{{$user -> email}}</td>
-                        <td>{{$user -> company}}</td>
-                        @if ($user ->role==0)
-                            <td>Administrador</td>
-                        @endif
-                        @if ($user ->role==1)
-                            <td>Coach</td>
-                        @endif
-                        @if ($user->role==2)
-                            <td>Usuario</td>
-                        @endif
-                        <td>
-                            <form action="{{Route('users.destroy',array($user->id))}}" method="post">
-                                {{csrf_field()}}
-                                <input name="_method" type="hidden" value="DELETE">
-                                <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
-                                <button class="btn btn-app" type="Submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-
-                    <tr>
-                        <td colspan="5" class="bg-app"><b>Empleados Empresa C</b></td>
-                    </tr>
-                    @foreach($c as $user)
-                    <tr>
-                        <td>{{$user -> name}}</td>
-                        <td>{{$user -> email}}</td>
-                        <td>{{$user -> company}}</td>
-                        @if ($user ->role==0)
-                            <td>Administrador</td>
-                        @endif
-                        @if ($user ->role==1)
-                            <td>Coach</td>
-                        @endif
-                        @if ($user->role==2)
-                            <td>Usuario</td>
-                        @endif
-                        <td>
-                            <form action="{{Route('users.destroy',array($user->id))}}" method="post">
-                                {{csrf_field()}}
-                                <input name="_method" type="hidden" value="DELETE">
-                                <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
-                                <button class="btn btn-app" type="Submit">Eliminar</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-
+                    @if (count($SERTRACEN)==0)
                         <tr>
-                            <td colspan="5" class="bg-app"><b>Empleados Empresa D</b></td>
+                            <td class="text-center" colspan="5">No hay usuarios registrados de esta empresa</td>
                         </tr>
-                        @foreach($d as $user)
+                    @else
+                        @foreach($SERTRACEN as $user)
                         <tr>
                             <td>{{$user -> name}}</td>
                             <td>{{$user -> email}}</td>
@@ -126,6 +47,189 @@
                             </td>
                         </tr>
                         @endforeach
+
+                    @endif
+                    
+
+                    <tr>
+                        <td colspan="5" class="bg-app"><b>DIARIO EL MUNDO</b></td>
+                    </tr>
+                   @if (count($DIARIOELMUNDO)==0)
+                       <tr>
+                           <td class="text-center" colspan="5">No hay usuarios registrados de esta empresa</td>
+                       </tr>
+                   @else
+                        @foreach($DIARIOELMUNDO as $user)
+                        <tr>
+                            <td>{{$user -> name}}</td>
+                            <td>{{$user -> email}}</td>
+                            <td>{{$user -> company}}</td>
+                            @if ($user ->role==0)
+                                <td>Administrador</td>
+                            @endif
+                            @if ($user ->role==1)
+                                <td>Coach</td>
+                            @endif
+                            @if ($user->role==2)
+                                <td>Usuario</td>
+                            @endif
+                            <td>
+                                <form action="{{Route('users.destroy',array($user->id))}}" method="post">
+                                    {{csrf_field()}}
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
+                                    <button class="btn btn-app" type="Submit">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                   @endif
+
+                    <tr>
+                        <td colspan="5" class="bg-app"><b>RED-INTELFON</b></td>
+                    </tr>
+
+                    @if (count($REDINTELFON)==0)
+                        <tr>
+                            <td class="text-center" colspan="5">No hay usuarios registrados de esta empresa</td>
+                        </tr>
+                    @else
+                        @foreach($REDINTELFON as $user)
+                        <tr>
+                            <td>{{$user -> name}}</td>
+                            <td>{{$user -> email}}</td>
+                            <td>{{$user -> company}}</td>
+                            @if ($user ->role==0)
+                                <td>Administrador</td>
+                            @endif
+                            @if ($user ->role==1)
+                                <td>Coach</td>
+                            @endif
+                            @if ($user->role==2)
+                                <td>Usuario</td>
+                            @endif
+                            <td>
+                                <form action="{{Route('users.destroy',array($user->id))}}" method="post">
+                                    {{csrf_field()}}
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
+                                    <button class="btn btn-app" type="Submit">Eliminar</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    @endif
+                    
+
+                        <tr>
+                            <td colspan="5" class="bg-app"><b>JUGUETON</b></td>
+                        </tr>
+
+                        @if (count($JUGUETON)==0)
+                            <tr>
+                                <td class="text-center" colspan="5">No hay usuarios registrados de esta empresa</td>
+                            </tr>
+                        @else
+                            @foreach($JUGUETON as $user)
+                            <tr>
+                                <td>{{$user -> name}}</td>
+                                <td>{{$user -> email}}</td>
+                                <td>{{$user -> company}}</td>
+                                @if ($user ->role==0)
+                                    <td>Administrador</td>
+                                @endif
+                                @if ($user ->role==1)
+                                    <td>Coach</td>
+                                @endif
+                                @if ($user->role==2)
+                                    <td>Usuario</td>
+                                @endif
+                                <td>
+                                    <form action="{{Route('users.destroy',array($user->id))}}" method="post">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
+                                        <button class="btn btn-app" type="Submit">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach                            
+                        @endif
+
+
+
+                        <tr>
+                            <td colspan="5" class="bg-app"><b>ALSASA</b></td>
+                        </tr>
+
+                        @if (count($ALSASA)==0)
+                            <tr>
+                                <td class="text-center" colspan="5">No hay usuarios registrados de esta empresa</td>
+                            </tr>
+                        @else
+                            @foreach($ALSASA as $user)
+                            <tr>
+                                <td>{{$user -> name}}</td>
+                                <td>{{$user -> email}}</td>
+                                <td>{{$user -> company}}</td>
+                                @if ($user ->role==0)
+                                    <td>Administrador</td>
+                                @endif
+                                @if ($user ->role==1)
+                                    <td>Coach</td>
+                                @endif
+                                @if ($user->role==2)
+                                    <td>Usuario</td>
+                                @endif
+                                <td>
+                                    <form action="{{Route('users.destroy',array($user->id))}}" method="post">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
+                                        <button class="btn btn-app" type="Submit">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach                            
+                        @endif
+
+
+
+                        <tr>
+                            <td colspan="5" class="bg-app"><b>GRUPO BORJA</b></td>
+                        </tr>
+
+                        @if (count($GBORJA)==0)
+                            <tr>
+                                <td class="text-center" colspan="5">No hay usuarios registrados de esta empresa</td>
+                            </tr>
+                        @else
+                            @foreach($GBORJA as $user)
+                            <tr>
+                                <td>{{$user -> name}}</td>
+                                <td>{{$user -> email}}</td>
+                                <td>{{$user -> company}}</td>
+                                @if ($user ->role==0)
+                                    <td>Administrador</td>
+                                @endif
+                                @if ($user ->role==1)
+                                    <td>Coach</td>
+                                @endif
+                                @if ($user->role==2)
+                                    <td>Usuario</td>
+                                @endif
+                                <td>
+                                    <form action="{{Route('users.destroy',array($user->id))}}" method="post">
+                                        {{csrf_field()}}
+                                        <input name="_method" type="hidden" value="DELETE">
+                                        <a href="{{Route('users.edit',array($user->id))}}" class="btn  btn-sec-app">Modificar</a>
+                                        <button class="btn btn-app" type="Submit">Eliminar</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach                            
+                        @endif
+                        
 
                 </tbody>
             </table>

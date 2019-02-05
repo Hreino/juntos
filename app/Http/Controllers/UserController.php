@@ -19,11 +19,15 @@ class UserController extends Controller
      */
     public function index()
     {
-        $empresaA=User::where('company','Empresa A')->get();
-        $empresaB=User::where('company','Empresa B')->get();
-        $empresaC=User::where('company','Empresa C')->get();
-        $empresaD=User::where('company','Empresa D')->get();
-        return View('user.index',['a'=>$empresaA, 'b'=>$empresaB, 'c'=>$empresaC, 'd'=>$empresaD]);
+        $SERTRACEN=User::where('company','SERTRACEN')->get();
+        $DIARIOELMUNDO=User::where('company','DIARIO EL MUNDO')->get();
+        $REDINTELFON=User::where('company','RED-INTELFON')->get();
+        $JUGUETON=User::where('company','JUGUETON')->get();
+        $ALSASA=User::where('company','ALSASA')->get();
+        $GBORJA=User::where('company','GRUPO BORJA')->get();
+        return View('user.index',['SERTRACEN'=>$SERTRACEN,
+         'DIARIOELMUNDO'=>$DIARIOELMUNDO, 
+         'REDINTELFON'=>$REDINTELFON, 'JUGUETON'=>$JUGUETON, 'ALSASA'=>$ALSASA, 'GBORJA'=>$GBORJA]);
     }
 
     /**

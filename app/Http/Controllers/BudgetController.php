@@ -214,52 +214,61 @@ class BudgetController extends Controller
 
     public function coaching(){
 
-        $coachA= DB::table('budgets')
+        $SERTRACEN= DB::table('budgets')
             ->join('users', 'budgets.id_user', 'users.id')
-            ->where('users.company', '=', 'Empresa A')
+            ->where('users.company', '=', 'SERTRACEN')
             ->where('budgets.id_expenses','<>','NULL')
             ->where('budgets.id_incomes','<>','NULL')
             ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
         ->get();
 
-        $coachB= DB::table('budgets')
+        $DIARIOELMUNDO= DB::table('budgets')
             ->join('users', 'budgets.id_user', 'users.id')
-            ->where('users.company', '=', 'Empresa B')
+            ->where('users.company', '=', 'DIARIO EL MUNDO')
             ->where('budgets.id_expenses','<>','NULL')
             ->where('budgets.id_incomes','<>','NULL')
             ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
         ->get();
 
-        $coachC= DB::table('budgets')
+        $REDINTELFON= DB::table('budgets')
             ->join('users', 'budgets.id_user', 'users.id')
-            ->where('users.company', '=', 'Empresa C')
+            ->where('users.company', '=', 'RED-INTELFON')
             ->where('budgets.id_expenses','<>','NULL')
             ->where('budgets.id_incomes','<>','NULL')
             ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
         ->get();
         
-        $coachD= DB::table('budgets')
+        $JUGUETON= DB::table('budgets')
             ->join('users', 'budgets.id_user', 'users.id')
-            ->where('users.company', '=', 'Empresa D')
+            ->where('users.company', '=', 'JUGUETON')
             ->where('budgets.id_expenses','<>','NULL')
             ->where('budgets.id_incomes','<>','NULL')
             ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
         ->get();
 
-        $coachE= DB::table('budgets')
+        $ALSASA= DB::table('budgets')
             ->join('users', 'budgets.id_user', 'users.id')
-            ->where('users.company', '=', 'Empresa E')
+            ->where('users.company', '=', 'ALSASA')
             ->where('budgets.id_expenses','<>','NULL')
             ->where('budgets.id_incomes','<>','NULL')
             ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
         ->get();
+
+        $GBORJA= DB::table('budgets')
+        ->join('users', 'budgets.id_user', 'users.id')
+        ->where('users.company', '=', 'GRUPO BORJA')
+        ->where('budgets.id_expenses','<>','NULL')
+        ->where('budgets.id_incomes','<>','NULL')
+        ->select('budgets.id', 'users.name', 'budgets.mes', 'budgets.coaching')
+    ->get();
 
         return view('budget.coaching', [
-            'coachA'=>$coachA,
-            'coachB'=>$coachB,
-            'coachC'=>$coachC,
-            'coachD'=>$coachD,
-            'coachE'=>$coachE,
+            'SERTRACEN'=>$SERTRACEN,
+            'DIARIOELMUNDO'=>$DIARIOELMUNDO,
+            'REDINTELFON'=>$REDINTELFON,
+            'JUGUETON'=>$JUGUETON,
+            'ALSASA'=>$ALSASA,
+            'GBORJA'=>$GBORJA
             ]);
     }
 }
