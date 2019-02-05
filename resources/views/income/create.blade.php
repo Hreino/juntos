@@ -114,7 +114,7 @@
                         id="otherIncome" 
                         class="form-control "
                         placeholder="$----.--"
-                        disabled>
+                        >
 
 
                         <button type="button" data-toggle="modal" 
