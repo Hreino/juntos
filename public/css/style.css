@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
 .label{
     color: #069999;
+    font-weight: bold;
 }
 #mainHome{
     font-family: 'Playfair Display', serif;
@@ -25,9 +26,76 @@
 .mi{
     border-bottom: solid black 1.5px !important;
 }
-.back{
-    background-image: url('/img/background.png');
+.backincome{
+    background-image: url('/img/income.png');
+    position: relative;
+    width: 100%;
+    height: 120%;
 }
+.backdwelling{
+background-image: url('/img/dwelling.png');
+    position: relative;
+    width: 100%;
+    height: 120%;
+}
+
+.backtransport{
+    background-image: url('/img/backtransport.png');
+    position: relative;
+    width: 100%;
+    height: 120%;
+}
+
+.backfood{
+    background-image: url('/img/backfood.png');
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.backsaving{
+    background-image: url('/img/income.png');
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.backentertmnt{
+    background-image: url('/img/backentertmnt.png');
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.backclothing{
+    background-image: url('/img/backclothing.png');
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.backhealth{
+    background-image: url('/img/backhealth.png');
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.backinsurance{
+    background-image: url('/img/backinsurance.png');
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.backeducation{
+    background-image: url('/img/backeducation.png');
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+
 #logoNav{
     height:60px;
     width: 150px;

@@ -2,7 +2,7 @@
 
 @section('content')
     
-    <div class="container">
+    <div class="container backincome">
         <div class="row">
             <div class="col-md-10">
                 <h1 >Hola <b class="label">{{auth()->user()->name}}</b></h1>

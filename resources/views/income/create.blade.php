@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container ">
+    <div class="container backincome">
         <div class="row justify-content-center">
             <div class="container col-md-5">
             @if ($errors->any())
@@ -54,7 +54,7 @@
         </div>
         {{-- Modal --}}
 
-            <form>
+            <form >
                    <div class="row">
                      <div class="col-md 1">
                         <div id="column_left">
@@ -113,7 +113,8 @@
                         name="otherIncome" 
                         id="otherIncome" 
                         class="form-control "
-                        placeholder="$----.--">
+                        placeholder="$----.--"
+                        disabled>
 
 
                         <button type="button" data-toggle="modal" 
