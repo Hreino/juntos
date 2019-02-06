@@ -100,7 +100,13 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return  redirect('users')->with('success', 'El usuario ha sido eliminado');
+        try {
+            User::find($id)->delete();
+            return  redirect('users')->with('success', 'El usuario ha sido eliminado');
+        } catch (\Throwable $error) {
+            //throw $;
+            return  redirect('users')->with('success', 'No se puede eliminar usuario, pues tiene Presupuestos creados');
+            }
     }
+        
 }

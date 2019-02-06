@@ -566,7 +566,7 @@
                 <tr class="label text-right">
                     <th colspan="2">Total de gastos</th>
                     @if (($ingresos->total)>($egresos->total))
-                        <th>${{$egresos->resultado}}</th>
+                        <th>${{$egresos->total}}</th>
                     @else
                         <th class="text-danger">${{$egresos->total}}</</th>
                     @endif

@@ -6,6 +6,16 @@
 
 <div class="container">
     <div class="row">
+
+       
+            <div class="col-md-12">
+                    @if(session()->has('success'))
+                    <div class="alert alert-danger col-md-12">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+            </div>
+      
         <div class="col-md-12">
             <table class="table table-bordered text-center">
                 <thead>
